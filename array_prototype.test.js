@@ -36,6 +36,18 @@ test('Elements of [1,2,3,4] should be joined to [1-2-3-4]', () => {
   expect(functions.join.call([1,2,3,4], '-')).toBe('1-2-3-4');
 });
 
+test(`[0,1,2] is indexes of all elements in ['one','two','three']`, () => {
+  expect(functions.keys.call(['one','two','three'])).toEqual([0,1,2]);
+});
+
+test('Elements in [1,2,3] should be multiplied by 3', () => {
+  expect(functions.map.call([1,2,3], item => item * 3)).toEqual([3,6,9]);
+});
+
+test('One of [1,2,3,-4,5] should be negative', () => {
+  expect(functions.some.call([1,2,3,-4,5], item => item < 0)).toBeTruthy();
+});
+
 test('[1,2,3,4,5] should be reversed to [5,4,3,2,1]', () => {
   expect(functions.reverse.call([1,2,3,4,5])).toEqual([5,4,3,2,1]);
 });
