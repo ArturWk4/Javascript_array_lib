@@ -54,11 +54,6 @@ Array.prototype._findIndex = function (callback) {
   }
   return -1;
 };
-Array.prototype._forEach = function (callback) {
-  for (let i of this) {
-    i = callback(i);
-  }
-};
 Array.prototype._includes = function (value) {
   for (let i of this) {
     if (i === value) {
@@ -108,3 +103,20 @@ Array.prototype._reverse = function () {
   return reversedArray;
 };
 
+const functions = {
+  of: Array.prototype._of,
+  concat: Array.prototype._concat,
+  every: Array.prototype._every,
+  fill: Array.prototype._fill,
+  filter: Array.prototype._filter,
+  find: Array.prototype._find,
+  findIndex: Array.prototype._findIndex,
+  includes: Array.prototype._includes,
+  join: Array.prototype._join,
+  keys: Array.prototype._keys,
+  map: Array.prototype._map,
+  some: Array.prototype._some,
+  reverse: Array.prototype._reverse
+};
+
+module.exports = functions;
